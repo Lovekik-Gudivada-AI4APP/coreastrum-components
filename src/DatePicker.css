@@ -1,0 +1,66 @@
+/* DatePicker · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.textarea:not(.mono)::placeholder, .input::placeholder { font-family: var(--font-ui); }
+.grid { display: grid; gap: 16px; }
+.input, .select, .textarea { width: 100%; height: 34px; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: var(--r-sm);
+  background: var(--surface); color: var(--ink); font-size: var(--fs-body); transition: border-color var(--t-fast), box-shadow var(--t-fast); min-width: 0; line-height: 20px }
+.input:hover, .select:hover, .textarea:hover { border-color: var(--ink-4); }
+.input:focus, .select:focus, .textarea:focus { outline: none; border-color: var(--focus); box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 22%, transparent); }
+.input[aria-invalid="true"] { border-color: var(--bad); }
+.input[disabled], .select[disabled], .textarea[disabled] { background: var(--surface-2); color: var(--ink-3); cursor: not-allowed; }
+.select { appearance: none; -webkit-appearance: none; padding-right: 24px; background-image: none;
+  background-position: calc(100% - 14px) 50%, calc(100% - 10px) 50%; background-size: 4px 4px; background-repeat: no-repeat; }
+.date-trigger { display: inline-flex; align-items: center; gap: 8px; text-align: left; cursor: pointer; width: auto; min-width: 0; max-width: 100%; white-space: nowrap; }
+.date-trigger > svg { color: var(--ink-3); flex: none; }
+.date-trigger .dt-txt { overflow: hidden; text-overflow: ellipsis; }
+.date-trigger .dt-ph { color: var(--ink-3); }
+.date-trigger[aria-expanded="true"] { border-color: var(--focus); box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 22%, transparent); }
+.cal-pop { z-index: 85; min-width: 0; padding: 0; }
+.cal-main { padding: 8px 12px 0; display: flex; flex-direction: column; }
+.cal-h { display: flex; align-items: center; gap: 4px; }
+.cal-h .icon-btn { width: 28px; height: 28px; }
+.cal-titles { flex: 1; display: grid; gap: 24px; text-align: center; font-size: var(--fs-sub); font-weight: 600; line-height: 20px }
+.cal-sel { height: 28px; width: auto; font-size: var(--fs-meta); line-height: 16px }
+.cal-main > .cal-m { width: 224px; align-self: center; }
+.cal-dow, .cal-grid { display: grid; grid-template-columns: repeat(7, 32px); }
+.cal-dow span { height: 24px; display: grid; place-items: center; font: 600 var(--fs-label)/16px var(--font-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--ink-3); }
+.cal-d { width: 32px; height: 32px; border: none; background: none; border-radius: var(--r-sm); font-size: var(--fs-meta); color: var(--ink); line-height: 16px }
+.cal-d:hover:not([disabled]) { background: var(--surface-2); }
+.cal-d[disabled] { color: var(--ink-4); cursor: not-allowed; }
+.cal-d[data-today] { box-shadow: inset 0 0 0 1px var(--accent-line); font-weight: 600; }
+.cal-d[data-in] { background: var(--accent-soft); border-radius: 0; color: var(--ink); }
+.cal-d[data-edge] { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.cal-time { display: flex; align-items: center; gap: 4px; padding: 8px 0 0; }
+.cal-f { display: flex; align-items: center; gap: 8px; padding: 8px 0; margin-top: 8px; border-top: 1px solid var(--line); }
+.cal-f > .t-meta { flex: 1; min-width: 0; }
+.dialog { position: fixed; z-index: 61; left: 50%; top: 12vh; transform: translateX(-50%); width: min(560px, calc(100vw - 32px)); max-height: 76vh;
+  background: var(--surface); border-radius: var(--r-xl); box-shadow: var(--e3); display: flex; flex-direction: column; animation: rise var(--t-med) var(--cubic-bezier(0.22,1,0.36,1));
+  border: 1px solid var(--line); }
+.dialog.wide { width: min(820px, calc(100vw - 32px)); }
+[data-design="C"] .input, [data-design="C"] .select { height: 32px; border-radius: 4px; font-size: 12px; line-height: 16px }
+[data-design="C"] .textarea::placeholder, [data-design="C"] .input::placeholder { font-family: var(--font-ui); }
+[data-design="C"] .textarea.mono, [data-design="C"] .input.mono::placeholder, [data-design="C"] input.mono::placeholder { font-family: var(--font-mono); }
+[data-design="C"] .input.mono, [data-design="C"] input.mono { font-family: var(--font-mono); font-size: 12px; line-height: 16px }
+[data-design="C"] .dialog { border-radius: 8px; top: 10vh; }
+:root[data-c2][data-design="C"] .dialog { top: 12vh; border-radius: 16px; border-color: var(--line); box-shadow: var(--e3); animation: c2-rise-in 500ms var(--ease); }
+:root[data-c2] :is(.input, .select), :root[data-c2][data-design="C"] :is(.input, .select) { height: 40px; padding: 0 12px; border-radius: 8px; font: var(--tx-body-6) var(--font-ui);
+  border-color: var(--line-strong); transition: border-color 300ms var(--ease), box-shadow 300ms var(--ease), background-color 300ms var(--ease); }
+:root[data-c2] .select, :root[data-c2][data-design="C"] .select { padding-right: 32px; }
+:root[data-c2] :is(.input, .textarea).mono, :root[data-c2] input.mono, :root[data-c2][data-design="C"] :is(.input, .textarea).mono, :root[data-c2][data-design="C"] input.mono { font: 400 14px/20px var(--font-mono); }
+:root[data-c2] :is(.input, .select, .textarea):hover:not(:disabled) { border-color: var(--ink-4); }
+:root[data-c2] :is(.input, .select, .textarea):focus { border-color: var(--focus); box-shadow: 0 0 0 4px color-mix(in srgb, var(--focus) 18%, transparent); }
+:root[data-c2] :is(.input, .textarea)::placeholder { color: var(--ink-4); }
+:root[data-c2] .input[aria-invalid="true"], :root[data-c2] .textarea[aria-invalid="true"], :root[data-c2] .select[aria-invalid="true"] { border-color: var(--bad); box-shadow: 0 0 0 4px color-mix(in srgb, var(--bad) 12%, transparent); }
+:root[data-c2] .date-trigger[aria-expanded="true"] { box-shadow: 0 0 0 4px color-mix(in srgb, var(--focus) 18%, transparent); }
+:root[data-c2] .cal-d { border-radius: 8px; transition: background-color 300ms var(--ease); }
+:root[data-c2] .cal-d[data-edge] { background: var(--c2-solid); color: var(--c2-solid-ink); }
+:root[data-c2] .grid { gap: 16px; }
+:root[data-c2] select.select, :root[data-c2][data-design="C"] select.select, :root[data-c2] select:not([multiple]) {
+  appearance: none; -webkit-appearance: none; padding-right: 36px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%2371717A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center; background-size: 16px 16px;
+}
+:root[data-c2] .dialog.wide:has(.tb) { width: min(1180px, calc(100vw - 32px)); max-height: 88vh; top: 6vh; }
+:root[data-c2] .dialog.wide:has(.tb) .dialog-b { padding: 0; }
+@media (max-width: 900px) {
+  :root[data-c2] .dialog.wide:has(.tb) { top: 8px; max-height: calc(100vh - 16px); }
+}

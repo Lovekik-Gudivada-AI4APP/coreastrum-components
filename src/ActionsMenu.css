@@ -1,0 +1,31 @@
+/* ActionsMenu · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.icon-btn { width: 34px; height: 34px; display: grid; place-items: center; border-radius: var(--r-sm); border: 1px solid transparent; background: none;
+  color: var(--ink-2); position: relative; flex: none; }
+.icon-btn:hover { background: var(--surface-2); border-color: var(--line); }
+.icon-btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent-line); color: var(--accent); }
+.row-menu-btn.tip[data-tip]:hover::after, .row-menu-btn.tip[data-tip]:focus-visible::after { left: auto; right: 0; transform: none; }
+.menu-item.danger { color: var(--bad); }
+.menu-item.danger:hover { background: var(--bad-soft); }
+.menu-item[disabled] { opacity: .45; cursor: not-allowed; }
+.menu { padding: 4px; display: flex; flex-direction: column; gap: 0px; }
+.menu-item { display: flex; align-items: center; gap: 8px; padding: 8px 8px; border-radius: var(--r-sm); border: none; background: none; text-align: left; width: 100%;
+  color: var(--ink); font-size: var(--fs-body); line-height: 20px }
+.menu-item:hover, .menu-item[data-active="true"] { background: var(--surface-2); }
+.menu-item[aria-checked="true"] { background: var(--accent-soft); }
+.menu-sep { height: 1px; background: var(--line); margin: 4px 4px; }
+[data-design="C"] .icon-btn { border-radius: 4px; }
+[data-design="C"] .menu-item { border-radius: 4px; padding: 8px 8px; font-size: 12px; line-height: 16px }
+.menu-item.danger { color: var(--bad); }
+.menu-item.danger:hover { background: var(--bad-soft); }
+.menu-item:disabled { opacity: .45; cursor: default; }
+:root[data-c2] .menu { padding: 8px; gap: 2px; }
+:root[data-c2] .menu-item, :root[data-c2][data-design="C"] .menu-item { gap: 12px; padding: 8px 12px; border-radius: 8px; font: var(--tx-body-6) var(--font-ui); transition: background-color 300ms var(--ease); }
+:root[data-c2] .menu-item:hover, :root[data-c2] .menu-item[data-active="true"] { background: var(--surface-3); }
+:root[data-c2] .menu-item:active { transform: scale(.99); }
+:root[data-c2] .menu-item[aria-checked="true"] { background: var(--surface-3); box-shadow: inset 0 0 0 1px var(--line); }
+:root[data-c2] .menu-sep { margin: 4px; }
+:root[data-c2] .icon-btn, :root[data-c2][data-design="C"] .icon-btn { border-radius: 8px; transition: background-color 300ms var(--ease), border-color 300ms var(--ease), transform 300ms var(--ease); }
+:root[data-c2] .icon-btn:hover { background: var(--surface-3); border-color: transparent; }
+:root[data-c2] .icon-btn:active { transform: scale(.96); }
+:root[data-c2] .icon-btn[aria-pressed="true"] { background: var(--surface-3); border-color: var(--line); color: var(--ink); }
+:root[data-c2] .menu-item.st-um-out { color: var(--bad); }

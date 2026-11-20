@@ -1,0 +1,85 @@
+/* EditFormLayout · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.page { padding: 24px 24px 48px; max-width: 1440px; }
+.page.wide { max-width: none; }
+@media (max-width: 860px) {
+  .page { padding: 16px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px)); }
+}
+[data-design="C"] .page { padding: 16px 24px 40px; max-width: none; }
+@media (max-width: 959px) {
+  [data-design="C"] .pg, [data-design="C"] .page { padding: 12px max(12px, env(safe-area-inset-right, 0px)) 32px max(12px, env(safe-area-inset-left, 0px)); }
+}
+.cmp-form .di-upload { max-width: none; margin: 0; }
+.ln { display: grid; align-content: center; gap: 0px; min-width: 132px; max-width: 176px; padding: 4px 8px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface);
+  text-align: left; color: var(--ink); font: inherit; transition: border-color var(--t-fast) var(--cubic-bezier(0.22,1,0.36,1)), background var(--t-fast) var(--cubic-bezier(0.22,1,0.36,1)); }
+button.ln { cursor: pointer; }
+button.ln:hover { border-color: var(--accent-line); background: var(--surface-2); }
+button.ln:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.ln-top { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.ln-top .hdot { margin-left: auto; }
+.ln-ticks { display: inline-flex; gap: 2px; align-items: center; flex: none; color: var(--accent); }
+.ln-ticks i { width: 2px; height: 8px; border-radius: 0px; background: currentColor; opacity: .25; }
+.ln-ticks i.on { opacity: 1; }
+.ln-k { font: 600 var(--fs-label)/16px var(--font-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.ln-name { font: 600 var(--fs-body)/20px var(--font-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; min-width: 0; }
+.ln-id { display: flex; align-items: baseline; gap: 4px; min-width: 0; font: 500 var(--fs-mono)/16px var(--font-mono); color: var(--ink-3); white-space: nowrap; }
+.ln-id .code-text { overflow: hidden; text-overflow: ellipsis; min-width: 0; white-space: nowrap; }
+.ln-id .code-text wbr { display: none; }
+.ln-meta { font: 500 var(--fs-meta)/16px var(--font-ui); color: var(--ink-3); flex: none; }
+.ln-meta::before { content: "· "; }
+.ln-cur { max-width: 204px; border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+.ln-cur .ln-k { color: var(--accent); }
+.ln-empty { border-style: dashed; background: transparent; color: var(--ink-3); }
+.ln-why { font-size: var(--fs-meta); line-height: 16px; white-space: normal; }
+.ln.ln-c { padding: 2px 8px; min-width: 0; max-width: 212px; width: 100%; }
+.ln.ln-c .ln-top { gap: 4px; }
+.ln.ln-c .ln-name { font-size: var(--fs-meta); line-height: 16px; flex: 0 1 auto; }
+.ln.ln-c .hdot { margin-left: auto; }
+.ln.ln-c .ln-k { flex: none; }
+.ln.ln-empty.ln-c { display: flex; gap: 4px; align-items: baseline; }
+@container lineage (max-width: 560px) {
+  .ln, .ln-cur, .ln.ln-c { max-width: none; min-width: 0; }
+}
+.cmp-wrap { container: cmp / inline-size; min-width: 0; }
+.cmp { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start; }
+.cmp-form { min-width: 0; }
+.cmp-side { position: sticky; top: 12px; min-width: 0; }
+.cmp-card { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+.cmp-blk { padding: 12px 12px 12px; border-bottom: 1px solid var(--line); }
+.cmp-blk:last-child { border-bottom: none; }
+.cmp-h { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font: 600 var(--fs-label)/16px var(--font-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--ink-3); }
+.cmp-h b { font-size: var(--fs-meta); letter-spacing: 0; color: var(--ink); line-height: 16px }
+.cmp-h b.ok { color: var(--ok); }
+.cmp-h b.todo { color: var(--warn); }
+.cmp-bar { height: 3px; margin: 8px 0 8px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.cmp-bar i { display: block; height: 100%; background: var(--accent); transition: width var(--t-fast) var(--cubic-bezier(0.22,1,0.36,1)); }
+.cmp-checks, .cmp-diff, .cmp-imp ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.cmp-checks li { display: flex; align-items: center; gap: 8px; font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); }
+.cmp-checks li[data-ok="y"] { color: var(--ink); }
+.cmp-tick { width: 12px; height: 12px; border-radius: 2px; box-shadow: inset 0 0 0 1.5px var(--line-strong); flex: none; position: relative; }
+.cmp-checks li[data-ok="y"] .cmp-tick { background: var(--ok); box-shadow: none; }
+.cmp-checks li[data-ok="y"] .cmp-tick::after { content: ""; position: absolute; left: 4px; top: 1.5px; width: 3px; height: 6px; border: solid #fff; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
+.cmp-diff { margin-top: 8px; }
+.cmp-diff li { display: grid; grid-template-columns: minmax(0, 1fr); font-size: var(--fs-meta); line-height: 16px; padding: 4px 0; border-top: 1px solid var(--line); }
+.cmp-diff li:first-child { border-top: none; padding-top: 0; }
+.cmp-dk { font-weight: 600; color: var(--ink); }
+.cmp-from { color: var(--ink-3); text-decoration: line-through; overflow-wrap: anywhere; }
+.cmp-to { color: var(--accent); overflow-wrap: anywhere; }
+.cmp-none, .cmp-note { margin: 8px 0 0; font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); }
+.cmp-imp { margin-top: 8px; }
+.cmp-sub { font-size: var(--fs-meta); color: var(--ink-3); margin-bottom: 4px; line-height: 16px }
+.cmp-imp .ln.ln-c { max-width: none; }
+@container cmp (max-width: 860px) {
+  .cmp { grid-template-columns: minmax(0, 1fr); }
+  .cmp-side { position: static; order: -1; }
+  .cmp-card { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .cmp-blk { border-bottom: none; border-right: 1px solid var(--line); }
+  .cmp-blk:last-child { border-right: none; }
+}
+:root[data-c2][data-design="C"] :is(.pg, .page) { padding: 24px 32px 48px; }
+@media (max-width: 1279px) {
+  :root[data-c2][data-design="C"] :is(.pg, .page) { padding: 24px 24px 48px; }
+}
+@media (max-width: 959px) {
+  :root[data-c2][data-design="C"] :is(.pg, .page) { padding: 16px 16px 32px; }
+}
+:root[data-c2] .cmp-solo { display: block; }

@@ -1,0 +1,50 @@
+/* DashboardLayout · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.fx-sheet-lead { margin: -4px 0 16px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+.fx-sheet-lead .fx-listlead { border-bottom: 0; }
+.ds .di-docwrap { max-height: 640px; border-radius: 0 0 var(--r-md) var(--r-md); }
+.ds .di-feedback { padding: 8px 24px; }
+.ds .w4-dx { gap: 0; align-items: stretch; }
+.ds .w4-dx > .adm-tree { border-right: 1px solid var(--line); padding: 8px 0; }
+.ds .w4-dx > .panel:last-child { min-width: 0; }
+.ds .adm-role-row { padding: 12px 24px; }
+@container ds (max-width: 640px) {
+  .ds .w4-dx > .adm-tree { border-right: 0; border-bottom: 1px solid var(--line); }
+  .ds .adm-role-row { padding: 12px 16px; }
+}
+.ds-sec.flush .w5-pad { padding: 12px 24px; margin: 0; }
+@container dssec (max-width: 640px) {
+  .ds-sec.flush .w5-pad { padding: 12px 16px; }
+}
+.ds-content > .w6-part { margin-top: 12px; }
+.ds { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); max-width: 1280px; min-width: 0; container: ds / inline-size; }
+.ds-lineage { padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); border-radius: var(--r-md) var(--r-md) 0 0; }
+.ds-live { border-bottom: 1px solid var(--line); }
+.ds-n { color: var(--ink-4); font-weight: 600; font-variant-numeric: tabular-nums; }
+.ds-c { color: var(--ink-3); font-weight: 500; font-variant-numeric: tabular-nums; }
+.ds-secs { min-width: 0; container: dssec / inline-size; }
+.ds-sec { padding: 16px 24px 16px; border-bottom: 1px solid var(--line); scroll-margin-top: 12px; min-width: 0; }
+.ds-sec:last-child { border-bottom: none; }
+.ds-h { display: flex; align-items: center; gap: 12px; min-height: 26px; margin-bottom: 8px; }
+.ds-h h2 { margin: 0; display: inline-flex; align-items: baseline; gap: 8px; font: 600 var(--fs-label)/16px var(--font-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+.ds-h h2 .ds-n { color: var(--accent); }
+.ds-h h2 .ds-c { letter-spacing: 0; }
+.ds-rule { flex: 1; height: 1px; background: var(--line); min-width: 16px; }
+.ds-act { flex: none; display: flex; align-items: center; gap: 8px; }
+.ds-desc { margin: -4px 0 12px; font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); max-width: 72ch; }
+.ds-content { min-width: 0; }
+.ds-sec.flush .ds-content { margin: 0 -24px -16px; border-top: 1px solid var(--line); }
+.ds-sec.flush .ds-desc { margin-bottom: 8px; }
+.ds .ds-content .panel { border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.ds .ds-content .toolbar { padding-left: 24px; padding-right: 24px; }
+.ds .ds-content .pager { padding-left: 24px; padding-right: 24px; }
+.ds .ds-content .metric-grid { border-top: 0; }
+.ds .ds-content .table-frame { border-radius: 0; }
+.ds .ds-content .callout { margin-top: 12px; }
+@container dssec (max-width: 700px) {
+  .ds-sec { padding: 12px 16px 16px; }
+  .ds-sec.flush .ds-content { margin: 0 -16px -16px; }
+  .ds .ds-content .toolbar, .ds .ds-content .pager { padding-left: 16px; padding-right: 16px; }
+}
+.ds-sheet { max-width: none; }
+.ds-sheet .ds-sec .ds-content > .grid, .ds-sheet .ds-sec .ds-content > .kpis { margin: 0; }
+:root[data-c2] :is(.panel, .card, .ds, .lv), :root[data-c2][data-design="C"] .panel { border-radius: 16px; border: 1px solid var(--line); box-shadow: none; background: var(--surface); }

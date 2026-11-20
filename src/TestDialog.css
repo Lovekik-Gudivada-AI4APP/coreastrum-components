@@ -1,0 +1,15 @@
+/* TestDialog · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+:root[data-c2] .tb { display: flex; flex-direction: column; min-height: 0; }
+:root[data-c2] .tb-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 8px 24px 12px; border-bottom: 1px solid var(--line); }
+:root[data-c2] .tb-badge { display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 8px; border-radius: 6px; border: 1px solid var(--warn-line); background: var(--warn-soft); color: var(--warn); font: 600 12px/16px var(--font-ui); }
+:root[data-c2] .tb-subj { font: 400 12px/16px var(--font-mono); color: var(--ink-3); }
+:root[data-c2] .tb-promise { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; font: 400 12px/16px var(--font-ui); color: var(--ink-3); }
+:root[data-c2] .tb-promise svg { color: var(--ok); }
+:root[data-c2] .tb-body { display: grid; grid-template-columns: minmax(300px, 380px) minmax(0, 1fr); min-height: 0; }
+:root[data-c2] .tb-setup { display: flex; flex-direction: column; gap: 16px; padding: 20px 24px; border-right: 1px solid var(--line); min-width: 0; }
+:root[data-c2] .tb-run { display: flex; flex-direction: column; gap: 16px; padding: 20px 24px 24px; background: var(--surface-2); min-width: 0; }
+@media (max-width: 900px) {
+  :root[data-c2] .tb-body { grid-template-columns: minmax(0, 1fr); }
+  :root[data-c2] .tb-setup { border-right: 0; border-bottom: 1px solid var(--line); }
+  :root[data-c2] .tb-promise { margin-left: 0; }
+}

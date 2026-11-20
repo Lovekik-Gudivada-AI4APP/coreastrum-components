@@ -1,0 +1,12 @@
+/* HealthIndicator · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.hdot { display: inline-flex; align-items: center; gap: 4px; flex: none; }
+.hdot::before { content: ""; width: 8px; height: 8px; border-radius: 9999px; background: var(--ink-4); flex: none; }
+.hdot[data-h="ok"]::before { background: var(--ok); }
+.hdot[data-h="warn"]::before { background: var(--warn); }
+.hdot[data-h="bad"]::before { background: var(--bad); }
+.hdot[data-h="idle"]::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--ink-4); }
+.hdot[data-h="live"]::before { background: var(--live); animation: sig-live 1.4s cubic-bezier(0.22,1,0.36,1) infinite; }
+.hdot b { font: 600 var(--fs-body)/20px var(--font-ui); color: var(--ink); }
+.hdot[data-h="warn"] b { color: var(--warn); }
+.hdot[data-h="bad"] b { color: var(--bad); }
+.hdot[data-h="live"] b { color: var(--live); }

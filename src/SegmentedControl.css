@@ -1,0 +1,12 @@
+/* SegmentedControl · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.segmented { display: inline-flex; padding: 2px; background: var(--surface-3); border-radius: var(--r-sm); gap: 2px; }
+.segmented button { height: 26px; padding: 0 8px; border: none; border-radius: var(--r-sm); background: none; font-size: 12px; font-weight: 500; color: var(--ink-3); line-height: 16px }
+.segmented button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--e1); }
+[data-design="C"] .segmented { border-radius: 6px; }
+[data-design="C"] .segmented button { border-radius: 4px; height: 24px; }
+:root[data-c2] .segmented, :root[data-c2][data-design="C"] .segmented { padding: 4px; gap: 4px; border-radius: 12px; background: var(--surface-3); }
+:root[data-c2] .segmented button, :root[data-c2][data-design="C"] .segmented button { height: 28px; padding: 0 12px; border-radius: 8px; font: var(--tx-caption-4) var(--font-ui);
+  transition: background-color 300ms var(--ease), color 300ms var(--ease); }
+:root[data-c2] .segmented button:hover { color: var(--ink); }
+:root[data-c2] .segmented button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--e1); }
+:root[data-c2][data-app-theme="dark"] .segmented button[aria-pressed="true"] { background: #313131; }

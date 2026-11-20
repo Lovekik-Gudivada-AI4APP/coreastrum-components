@@ -1,0 +1,10 @@
+/* ProgressBar · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.bar { height: 6px; border-radius: 2px; background: var(--surface-3); overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--accent); border-radius: 2px; transition: width var(--t-slow) var(--cubic-bezier(0.22,1,0.36,1)); }
+.bar.ok > i { background: var(--ok); }
+.bar.warn > i { background: var(--warn); }
+.bar.bad > i { background: var(--bad); }
+.bar.ai > i { background: var(--ai); }
+.bar.indeterminate > i { width: 35% !important; animation: indet 1.2s var(--cubic-bezier(0.22,1,0.36,1)) infinite; }
+:root[data-c2] .bar { height: 6px; border-radius: 9999px; }
+:root[data-c2] .bar > i { border-radius: 9999px; }

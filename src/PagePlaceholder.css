@@ -1,0 +1,5 @@
+/* PagePlaceholder · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); min-width: 0; }
+[data-design="C"] .panel { border-radius: 8px; box-shadow: none; }
+:root[data-c2] :is(.panel, .card, .ds, .lv), :root[data-c2][data-design="C"] .panel { border-radius: 16px; border: 1px solid var(--line); box-shadow: none; background: var(--surface); }
+:root[data-c2] :is(.panel, .lv) .table-frame { border-radius: 0 0 16px 16px; }

@@ -1,0 +1,17 @@
+/* DetailsList · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.spec { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; border-top: 1px solid var(--line); }
+.spec[data-cols="1"] { grid-template-columns: minmax(0, 1fr); }
+.spec[data-cols="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.spec-i { display: grid; grid-template-columns: 144px minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 8px 0 8px; border-bottom: 1px solid var(--line); min-width: 0; }
+.spec[data-cols="3"] .spec-i { grid-template-columns: 112px minmax(0, 1fr); }
+.spec-i.wide { grid-column: 1 / -1; }
+.spec dt { font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); }
+.spec dd { margin: 0; min-width: 0; font-size: var(--fs-body); line-height: 20px; color: var(--ink); overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.spec dd.mono { font: 500 var(--fs-mono)/16px var(--font-mono); }
+.spec dd .linkish, .spec dd .cp-link { text-align: left; }
+.spec-none { color: var(--ink-3); }
+.spec-hint { display: block; font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); }
+@container dssec (max-width: 700px) {
+  .spec, .spec[data-cols="3"] { grid-template-columns: minmax(0, 1fr); }
+  .spec-i, .spec[data-cols="3"] .spec-i { grid-template-columns: 120px minmax(0, 1fr); }
+}

@@ -1,0 +1,29 @@
+/* ToastContainer · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.toasts { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 90; display: flex; flex-direction: column; gap: 8px;
+  width: min(380px, calc(100vw - 32px)); }
+.toast { display: flex; gap: 8px; align-items: flex-start; padding: 12px 12px; border-radius: var(--r-lg); background: var(--brand-900); color: #fff;
+  box-shadow: var(--e2); animation: rise-t var(--t-med) var(--cubic-bezier(0.22,1,0.36,1)); font-size: var(--fs-body); line-height: 20px }
+.toast .tt { font-weight: 600; }
+.toast .ts { color: #B5C6DA; font-size: 12px; margin-top: 2px; line-height: 16px }
+.toast .ti { flex: none; margin-top: 0px; }
+.toast.ok .ti { color: #6FD3A6; }
+.toast.bad .ti { color: #F28C9C; }
+.toast.warn .ti { color: #F2C66F; }
+.toast.info .ti { color: #86BFE0; }
+.toast.ai .ti { color: #F08BC6; }
+[data-design="C"] .toasts { bottom: calc(var(--st-status-h) + 14px + env(safe-area-inset-bottom, 0px)); }
+@media (max-width: 959px) {
+  [data-design="C"] .toasts, [data-design="C"] .st.cp-on ~ .toasts { right: 12px; bottom: calc(40px + env(safe-area-inset-bottom, 0px)); }
+}
+.toasts { bottom: calc(108px + env(safe-area-inset-bottom, 0px)); }
+@media (max-width: 960px) {
+  .toasts { bottom: calc(124px + env(safe-area-inset-bottom, 0px)); }
+}
+:root[data-c2] .toasts { gap: 8px; }
+:root[data-c2] .toast { gap: 12px; padding: 12px 16px; border-radius: 16px; background: var(--c2-toast); color: var(--c2-toast-ink); border: 1px solid color-mix(in srgb, var(--c2-toast-ink) 10%, transparent);
+  box-shadow: var(--e3); font: var(--tx-body-6) var(--font-ui); animation: c2-toast-in 500ms var(--ease); }
+:root[data-c2] .toast .tt { font: var(--tx-body-4) var(--font-ui); }
+:root[data-c2] .toast .ts { font: var(--tx-caption-5) var(--font-ui); color: var(--c2-toast-sub); margin-top: 2px; }
+@media (max-width: 959px) {
+  :root[data-c2] .toasts, :root[data-c2] .st.cp-on ~ .toasts { right: 16px; bottom: calc(48px + env(safe-area-inset-bottom, 0px)); }
+}

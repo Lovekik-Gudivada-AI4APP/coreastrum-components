@@ -1,0 +1,10 @@
+/* EmptyState · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.empty { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 40px 16px; color: var(--ink-3); }
+.empty .em-ico { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-3); color: var(--ink-3); }
+.empty h3 { margin: 0; color: var(--ink); font: 700 var(--fs-section)/24px var(--font-display); }
+.empty p { margin: 0; max-width: 46ch; font-size: var(--fs-body); line-height: 20px }
+[data-design="C"] .empty h3 { font: 600 14px/20px var(--font-ui); }
+:root[data-c2] .empty { gap: 12px; padding: 48px 24px; }
+:root[data-c2] .empty .em-ico { width: 48px; height: 48px; border-radius: 12px; background: var(--surface-3); border: 1px solid var(--line); color: var(--ink-2); }
+:root[data-c2] .empty h3, :root[data-c2][data-design="C"] .empty h3 { font: var(--tx-body-1) var(--font-ui); }
+:root[data-c2] .empty p { font: var(--tx-body-6) var(--font-ui); max-width: 44ch; }

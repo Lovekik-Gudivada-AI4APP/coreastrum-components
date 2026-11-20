@@ -1,0 +1,5 @@
+/* Popover · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.popover { position: absolute; z-index: 50; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--e2);
+  animation: pop var(--t-fast) var(--cubic-bezier(0.22,1,0.36,1)); min-width: 220px; }
+[data-design="C"] .popover { border-radius: 8px; }
+:root[data-c2] .popover { border-radius: 16px; border-color: var(--line); box-shadow: var(--e3); }

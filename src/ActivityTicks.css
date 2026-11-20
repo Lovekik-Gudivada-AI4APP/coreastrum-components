@@ -1,0 +1,15 @@
+/* ActivityTicks · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.spulse { display: inline-flex; align-items: flex-end; gap: 2px; height: var(--pulse-h, 22px); flex: none; vertical-align: middle; }
+.spulse-t { display: flex; align-items: flex-end; width: 3px; height: 100%; padding: 0; border: 0; background: none; flex: none; }
+.spulse-t i { display: block; width: 100%; min-height: 2px; border-radius: 0px; background: color-mix(in srgb, var(--ok) 62%, var(--surface)); }
+.spulse-t[data-s="none"] i { height: 2px !important; background: var(--line); }
+.spulse-t[data-s="warn"] i { background: var(--warn); }
+.spulse-t[data-s="bad"] i { background: var(--bad); }
+.spulse-t[data-s="idle"] i { background: var(--line-strong); }
+.spulse-t[data-s="live"] i { background: var(--live); animation: sig-live 1.4s cubic-bezier(0.22,1,0.36,1) infinite; }
+.spulse.pick { gap: 2px; }
+.spulse.pick .spulse-t { width: 4px; cursor: pointer; }
+.spulse .spulse-t:hover i, .spulse .spulse-t:focus-visible i { box-shadow: 0 0 0 1.5px var(--ink); }
+.spulse .spulse-t:focus-visible { outline: none; }
+.spulse-tip { position: fixed; z-index: 400; transform: translate(-50%, calc(-100% - 8px)); pointer-events: none; white-space: nowrap;
+  padding: 4px 8px; border-radius: 6px; background: var(--ink); color: var(--surface); font: 500 var(--fs-meta)/16px var(--font-ui); font-variant-numeric: tabular-nums; box-shadow: var(--e1); }

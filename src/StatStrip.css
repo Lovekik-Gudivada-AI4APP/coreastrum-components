@@ -1,0 +1,11 @@
+/* StatStrip · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.live-strip { display: flex; flex-wrap: wrap; }
+.ls-c { flex: 1 1 120px; min-width: 0; padding: 8px 16px 12px; border-right: 1px solid var(--line); box-shadow: 0 1px 0 var(--line); }
+.ls-c.wide { flex: 1.5 1 236px; }
+.ls-c:last-child { border-right: none; }
+.ls-k { font: 600 var(--fs-label)/16px var(--font-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--ink-3); white-space: nowrap; }
+.ls-v { margin-top: 4px; min-height: 26px; display: flex; align-items: center; gap: 4px; font: 600 var(--fs-body)/20px var(--font-ui); color: var(--ink); min-width: 0; font-variant-numeric: tabular-nums; }
+.ls-v .code-text, .ls-v .mono { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; font-weight: 500; }
+.ls-s { margin-top: 2px; font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); overflow-wrap: anywhere; }
+.ls-v .linkish, .ls-s .linkish { font-weight: inherit; }
+:root[data-c2] :is(.t-over, .menu-label, .cmdk-g, .pane-section, .lab, .ls-k) { font: var(--tx-caption-3) var(--font-ui); letter-spacing: 0; text-transform: none; color: var(--ink-3); }

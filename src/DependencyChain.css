@@ -1,0 +1,78 @@
+/* DependencyChain · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.page { padding: 24px 24px 48px; max-width: 1440px; }
+.page.wide { max-width: none; }
+@media (max-width: 860px) {
+  .page { padding: 16px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px)); }
+}
+[data-design="C"] .page { padding: 16px 24px 40px; max-width: none; }
+@media (max-width: 959px) {
+  [data-design="C"] .pg, [data-design="C"] .page { padding: 12px max(12px, env(safe-area-inset-right, 0px)) 32px max(12px, env(safe-area-inset-left, 0px)); }
+}
+.lineage { min-width: 0; container: lineage / inline-size; }
+.lineage ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 0; min-width: 0; }
+.lineage-li { display: flex; flex-direction: column; min-width: 0; }
+.lineage-li.has-fan { flex: 1 1 172px; max-width: 244px; }
+.lineage-row { display: flex; align-items: center; min-width: 0; flex: 1; }
+.ln-stage { display: flex; gap: 8px; height: 14px; margin: 0 0 4px 16px; font: 600 var(--fs-label)/16px var(--font-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--ink-3); white-space: nowrap; }
+.lineage-li:first-child .ln-stage { margin-left: 0; }
+.ln-stage b { color: var(--accent); margin-right: 4px; font-weight: 600; }
+.lineage-arrow { display: inline-flex; align-items: center; color: var(--ink-4); padding: 0 2px; flex: none; }
+.lineage-arrow::before { content: ""; width: 6px; height: 1px; background: var(--line-strong); }
+.lstep { display: flex; align-items: center; gap: 4px; min-width: 0; align-self: stretch; }
+.lstep.fan { flex-direction: column; align-items: stretch; justify-content: center; padding-left: 8px; border-left: 1px solid var(--line-strong); }
+.ln { display: grid; align-content: center; gap: 0px; min-width: 132px; max-width: 176px; padding: 4px 8px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface);
+  text-align: left; color: var(--ink); font: inherit; transition: border-color var(--t-fast) var(--cubic-bezier(0.22,1,0.36,1)), background var(--t-fast) var(--cubic-bezier(0.22,1,0.36,1)); }
+.lstep:not(.fan) > .ln, .lstep:not(.fan) > .lg > .ln { height: 100%; }
+button.ln { cursor: pointer; }
+button.ln:hover { border-color: var(--accent-line); background: var(--surface-2); }
+button.ln:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.ln-top { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.ln-top .hdot { margin-left: auto; }
+.ln-ticks { display: inline-flex; gap: 2px; align-items: center; flex: none; color: var(--accent); }
+.ln-ticks i { width: 2px; height: 8px; border-radius: 0px; background: currentColor; opacity: .25; }
+.ln-ticks i.on { opacity: 1; }
+.ln-k { font: 600 var(--fs-label)/16px var(--font-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.ln-name { font: 600 var(--fs-body)/20px var(--font-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; min-width: 0; }
+.ln-group .ln-name { display: flex; align-items: center; gap: 4px; }
+.ln-id { display: flex; align-items: baseline; gap: 4px; min-width: 0; font: 500 var(--fs-mono)/16px var(--font-mono); color: var(--ink-3); white-space: nowrap; }
+.ln-id .code-text { overflow: hidden; text-overflow: ellipsis; min-width: 0; white-space: nowrap; }
+.ln-id .code-text wbr { display: none; }
+.ln-meta { font: 500 var(--fs-meta)/16px var(--font-ui); color: var(--ink-3); flex: none; }
+.ln-meta::before { content: "· "; }
+.ln-sum { font-family: var(--font-ui); overflow: hidden; text-overflow: ellipsis; display: block; }
+.ln-cur { max-width: 204px; border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+.ln-cur .ln-k { color: var(--accent); }
+.ln-empty { border-style: dashed; background: transparent; color: var(--ink-3); }
+.ln-why { font-size: var(--fs-meta); line-height: 16px; white-space: normal; }
+.ln.ln-c { padding: 2px 8px; min-width: 0; max-width: 212px; width: 100%; }
+.ln.ln-c .ln-top { gap: 4px; }
+.ln.ln-c .ln-name { font-size: var(--fs-meta); line-height: 16px; flex: 0 1 auto; }
+.ln.ln-c .hdot { margin-left: auto; }
+.ln.ln-c .ln-k { flex: none; }
+.ln.ln-empty.ln-c { display: flex; gap: 4px; align-items: baseline; }
+.ln-group .lg-chev { color: var(--ink-3); transition: transform var(--t-fast) var(--cubic-bezier(0.22,1,0.36,1)); flex: none; }
+.lg.open .lg-chev { transform: rotate(180deg); }
+.lg { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.lg-list { list-style: none; margin: 0; padding: 0 0 0 8px; display: flex; flex-direction: column; gap: 4px; border-left: 1px dashed var(--line-strong); }
+@container lineage (max-width: 560px) {
+  .lineage ol { flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 0; }
+  .lineage-li { align-items: stretch; }
+  .ln-stage { margin: 8px 0 4px; }
+  .ln-stage:empty { display: none; }
+  .lineage-li:first-child .ln-stage { margin-top: 0; }
+  .lineage-row { flex-direction: column; align-items: stretch; }
+  .lineage-arrow { padding: 2px 0 2px 12px; flex-direction: column; align-items: flex-start; }
+  .lineage-arrow::before { width: 1px; height: 6px; margin-left: 4px; }
+  .lineage-arrow svg { transform: rotate(90deg); }
+  .lstep { flex-direction: column; align-items: stretch; }
+  .lstep.fan { padding-left: 0; border-left: 0; }
+  .ln, .ln-cur, .ln.ln-c { max-width: none; min-width: 0; }
+}
+.lg-list .ln-k { display: none; }
+:root[data-c2][data-design="C"] :is(.pg, .page) { padding: 24px 32px 48px; }
+@media (max-width: 1279px) {
+  :root[data-c2][data-design="C"] :is(.pg, .page) { padding: 24px 24px 48px; }
+}
+@media (max-width: 959px) {
+  :root[data-c2][data-design="C"] :is(.pg, .page) { padding: 16px 16px 32px; }
+}

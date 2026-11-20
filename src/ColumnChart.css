@@ -1,0 +1,4 @@
+/* ColumnChart · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.chart text { fill: var(--ink-3); font: 500 12px/16px var(--font-ui); }
+.chart .grid-line { stroke: var(--line); stroke-width: 1; }
+.chart .axis { stroke: var(--line-strong); }

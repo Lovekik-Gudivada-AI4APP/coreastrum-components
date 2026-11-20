@@ -1,0 +1,58 @@
+/* Table · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.table-frame { position: relative; min-width: 0; }
+.table-frame::before, .table-frame::after { content: ""; position: absolute; top: 0; bottom: 0; width: 28px; pointer-events: none; z-index: 3;
+  opacity: 0; transition: opacity var(--t-fast); }
+.table-frame::before { left: 0; background: var(--ink) 10%, transparent), transparent); }
+.table-frame::after { right: 0; background: var(--ink) 10%, transparent), transparent); }
+.table-frame[data-more-l]::before { opacity: 1; }
+.table-frame[data-more-r]:not(.has-sticky)::after { opacity: 1; }
+.table-wrap { overflow-x: auto; min-width: 0; }
+.table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: var(--fs-body); line-height: 20px; }
+.table th { position: sticky; top: 0; z-index: 1; text-align: left; font: 600 var(--fs-label)/16px var(--font-ui); letter-spacing: .05em; text-transform: uppercase;
+  color: var(--ink-3); background: var(--surface-2); padding: 8px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.table th button { all: unset; cursor: pointer; display: inline-flex; gap: 4px; align-items: center; }
+.table th button:focus-visible { outline: 2px solid var(--focus); }
+.table td { height: 44px; padding: 4px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.table.dense td { height: 36px; padding-top: 2px; padding-bottom: 2px; }
+.table.dense th { padding-top: 8px; padding-bottom: 8px; }
+.table tr:last-child td { border-bottom: none; }
+.table tbody tr { transition: background var(--t-fast); }
+.table tbody tr.clickable { cursor: pointer; }
+.table tbody tr.clickable:hover { background: var(--surface-2); }
+.table tbody tr[aria-selected="true"] { background: var(--accent-soft); }
+.table td.r, .table th.r { text-align: right; }
+.table-frame.clip .table td, .table-frame.clip .table th { white-space: nowrap; }
+.table-frame.clip .table td.wrap { white-space: normal; }
+.cell-clip { max-width: var(--cell-max, 260px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cell-clip > .chip, .cell-clip > .tag, .cell-clip > .cp-link, .cell-clip > button { max-width: 100%; vertical-align: middle; }
+.cell-clip > .chip:not(:has(> .d, > svg)) { display: inline-block; line-height: 20px; height: auto; overflow: hidden; text-overflow: ellipsis; }
+.cell-clip > .cp-link, .cell-clip > button { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cell-clip > .row { flex-wrap: nowrap; }
+.table th.sticky-r, .table td.sticky-r { position: sticky; right: 0; z-index: 2; background: var(--surface); width: 1%; padding-left: 8px; }
+.table th.sticky-r { background: var(--surface-2); }
+.table-frame[data-more-r] .table .sticky-r { box-shadow: -10px 0 12px -10px color-mix(in srgb, var(--ink) 35%, transparent); clip-path: inset(0 0 0 -24px); }
+.table tbody tr.clickable:hover td.sticky-r { background: var(--surface-2); }
+.table tbody tr[aria-selected="true"] td.sticky-r { background: var(--accent-soft); }
+[data-design="C"] .table tbody tr.clickable:hover td.sticky-r { background: color-mix(in srgb, var(--accent-soft) 60%, var(--surface)); }
+.table .lv-acts .icon-btn { width: 28px; height: 28px; }
+.table tbody tr:hover .lv-acts, .table tbody tr:focus-within .lv-acts, .lv-acts:has([aria-expanded="true"]) { opacity: 1; }
+[data-design="C"] .table { font-size: 12px; line-height: 16px }
+[data-design="C"] .table th { padding: 8px 12px; font: var(--c-cap); letter-spacing: var(--c-cap-ls); background: var(--surface-2); color: var(--ink-3); }
+[data-design="C"] .table td { padding: 8px 12px; }
+[data-design="C"] .table tbody tr.clickable:hover { background: color-mix(in srgb, var(--accent-soft) 60%, var(--surface)); box-shadow: inset 2px 0 0 var(--accent); }
+[data-design="C"] .table tbody tr[aria-selected="true"] { box-shadow: inset 2px 0 0 var(--accent); }
+:root[data-c2][data-design="C"] .table { font: var(--tx-body-6) var(--font-ui); }
+:root[data-c2][data-design="C"] .table th { padding: 12px 16px; font: var(--tx-caption-4) var(--font-ui); letter-spacing: 0; text-transform: none; color: var(--ink-3); background: var(--surface); border-bottom: 1px solid var(--line); }
+:root[data-c2][data-design="C"] .table td { height: 48px; padding: 8px 16px; }
+:root[data-c2][data-design="C"] .table.dense td { height: 40px; padding-top: 4px; padding-bottom: 4px; }
+:root[data-c2][data-design="C"] .table tbody tr { transition: background-color 300ms var(--ease); }
+:root[data-c2][data-design="C"] .table tbody tr.clickable:hover, :root[data-c2][data-design="C"] .table tbody tr.clickable:hover td.sticky-r { background: var(--surface-2); box-shadow: none; }
+:root[data-c2][data-design="C"] .table tbody tr[aria-selected="true"], :root[data-c2][data-design="C"] .table tbody tr[aria-selected="true"] td.sticky-r { background: var(--accent-soft); box-shadow: none; }
+:root[data-c2] .table th.sticky-r { background: var(--surface); }
+@media (max-width: 1279px) {
+  :root[data-c2][data-design="C"] .table :is(th, td) { padding-left: 12px; padding-right: 12px; }
+}
+:root[data-c2] .table th .th-sort { display: inline-flex; align-items: center; gap: 4px; }
+:root[data-c2] .table th .th-sort .th-sort-ic { color: var(--ink-4); transition: color 300ms var(--ease); }
+:root[data-c2] .table th .th-sort:hover .th-sort-ic { color: var(--ink-2); }
+:root[data-c2] .table th .th-sort.on, :root[data-c2] .table th .th-sort.on .th-sort-ic { color: var(--ink); }

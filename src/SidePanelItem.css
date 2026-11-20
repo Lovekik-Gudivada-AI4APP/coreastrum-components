@@ -1,0 +1,10 @@
+/* SidePanelItem · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.pane-item { width: 100%; display: flex; align-items: center; gap: 8px; padding: 8px 8px; border-radius: var(--r-sm); border: 1px solid transparent;
+  background: none; text-align: left; color: var(--ink-2); min-width: 0; }
+.pane-item:hover { background: var(--surface-2); }
+.pane-item[aria-current="true"] { background: var(--accent-soft); border-color: var(--accent-line); color: var(--ink); }
+.pane-item .pi-main { flex: 1; min-width: 0; }
+.pane-item .pi-title { font-weight: 500; font-size: var(--fs-body); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 20px }
+.pane-item .pi-sub { font-size: var(--fs-meta); color: var(--ink-3); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 16px }
+.grid { display: grid; gap: 16px; }
+:root[data-c2] .grid { gap: 16px; }

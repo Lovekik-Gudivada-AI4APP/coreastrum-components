@@ -1,0 +1,4 @@
+/* Skeleton · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.skel { background: var(--surface-3) 100%); background-size: 200% 100%;
+  animation: shimmer 1.3s cubic-bezier(0.22,1,0.36,1) infinite; border-radius: 4px; }
+:root[data-c2] .skel { background: var(--surface-3); animation: c2-pulse 1600ms var(--ease) infinite; }

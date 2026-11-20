@@ -1,0 +1,11 @@
+/* Switch · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.toggle { position: relative; width: 32px; height: 18px; flex: none; border-radius: var(--r-pill); border: none; background: var(--line-strong); padding: 0; transition: background var(--t-fast); }
+.toggle::after { content: ""; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: #fff; box-shadow: var(--e1); transition: transform var(--t-fast) var(--cubic-bezier(0.22,1,0.36,1)); }
+.toggle[aria-checked="true"] { background: var(--accent); }
+.toggle[aria-checked="true"]::after { transform: translateX(14px); }
+.toggle[disabled] { opacity: .45; cursor: not-allowed; }
+:root[data-c2] .toggle { width: 36px; height: 20px; transition: background-color 300ms var(--ease); }
+:root[data-c2] .toggle::after { top: 2px; left: 2px; width: 16px; height: 16px; transition: transform 300ms var(--ease); }
+:root[data-c2] .toggle[aria-checked="true"] { background: var(--c2-solid); }
+:root[data-c2][data-app-theme="dark"] .toggle::after { background: #FFFFFF; }
+:root[data-c2][data-app-theme="dark"] .toggle[aria-checked="true"]::after { background: #000000; }

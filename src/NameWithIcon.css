@@ -1,0 +1,3 @@
+/* NameWithIcon · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.grid { display: grid; gap: 16px; }
+:root[data-c2] .grid { gap: 16px; }

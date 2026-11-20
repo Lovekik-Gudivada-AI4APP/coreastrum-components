@@ -1,0 +1,51 @@
+/* Button · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; height: 32px; padding: 0 12px; border-radius: var(--r-sm);
+  border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); font-weight: 500; font-size: var(--fs-body); white-space: nowrap;
+  transition: background var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast); line-height: 20px }
+.btn:hover { background: var(--surface-2); border-color: var(--ink-4); }
+.btn:active { transform: translateY(.5px); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn.ai { background: var(--ai-solid); border-color: var(--ai-solid); color: #fff; }
+.btn.ai:hover { background: var(--magenta-600); border-color: var(--magenta-600); }
+.btn.ghost { border-color: transparent; background: none; color: var(--ink-2); }
+.btn.ghost:hover { background: var(--surface-2); color: var(--ink); }
+.btn.danger { color: var(--bad); border-color: var(--bad-line); background: var(--surface); }
+.btn.danger:hover { background: var(--bad-soft); }
+.btn.danger.solid { background: var(--bad); color: var(--on-solid); border-color: var(--bad); }
+.btn.danger.solid:hover { background: color-mix(in srgb, var(--bad) 88%, var(--ink)); }
+:root[data-app-theme="dark"][data-design] .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+:root[data-app-theme="dark"][data-design] .btn.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn.sm { height: 26px; padding: 0 8px; font-size: var(--fs-meta); gap: 4px; line-height: 16px }
+.btn.lg { height: 40px; padding: 0 16px; font-size: var(--fs-body); line-height: 20px }
+.btn[disabled], .btn[aria-disabled="true"] { opacity: .45; cursor: not-allowed; transform: none; }
+.btn .spin { width: 13px; height: 13px; }
+.spin { width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: rot .7s cubic-bezier(0.22,1,0.36,1) infinite; display: inline-block; flex: none; }
+[data-design="C"] .btn { height: 30px; padding: 0 12px; font-size: 12px; border-radius: 4px; line-height: 16px }
+[data-design="C"] .btn.sm { height: 26px; padding: 0 8px; font-size: 12px; line-height: 16px }
+[data-design="C"] .btn.lg { height: 38px; }
+[data-design="C"] .btn.primary { box-shadow: none; }
+.btn.fb-up { background: var(--ok-soft); border-color: var(--ok-line); color: var(--ok); }
+.btn.fb-down { background: var(--bad-soft); border-color: var(--bad-line); color: var(--bad); }
+:root[data-c2] .btn, :root[data-c2][data-design="C"] .btn { height: auto; min-height: 36px; padding: 8px 12px; gap: 8px; border-radius: 8px; font: var(--tx-btn-sm) var(--font-ui);
+  border-color: var(--line-strong); background: var(--surface); color: var(--ink);
+  transition: background-color 300ms var(--ease), border-color 300ms var(--ease), color 300ms var(--ease), transform 300ms var(--ease), opacity 300ms var(--ease); }
+:root[data-c2] .btn:hover:not(:disabled), :root[data-c2][data-design="C"] .btn:hover:not(:disabled) { background: var(--surface-3); border-color: var(--line-strong); transform: translateY(-1px); }
+:root[data-c2] .btn:active:not(:disabled), :root[data-c2] .btn:active:not(:disabled):hover { transform: scale(.98); }
+:root[data-c2] .btn.sm, :root[data-c2][data-design="C"] .btn.sm { min-height: 32px; padding: 8px 12px; gap: 4px; font: var(--tx-btn-xsm) var(--font-ui); }
+:root[data-c2] .btn.lg, :root[data-c2][data-design="C"] .btn.lg { min-height: 40px; padding: 8px 16px; font: var(--tx-btn-md) var(--font-ui); }
+:root[data-c2] .btn.primary, :root[data-c2][data-app-theme][data-design] .btn.primary { background: var(--c2-solid); border-color: var(--c2-solid); color: var(--c2-solid-ink); box-shadow: none; }
+:root[data-c2] .btn.primary:hover:not(:disabled), :root[data-c2][data-app-theme][data-design] .btn.primary:hover:not(:disabled) { background: var(--c2-solid-hover); border-color: var(--c2-solid-hover); color: var(--c2-solid-ink); }
+:root[data-c2] .btn.ai { background: var(--ai); border-color: var(--ai); color: #FFFFFF; }
+:root[data-c2] .btn.ai:hover:not(:disabled) { background: var(--ai-ink); border-color: var(--ai-ink); }
+:root[data-c2] .btn.ghost, :root[data-c2][data-design="C"] .btn.ghost { border-color: transparent; background: none; color: var(--ink-2); }
+:root[data-c2] .btn.ghost:hover:not(:disabled), :root[data-c2][data-design="C"] .btn.ghost:hover:not(:disabled) { background: var(--surface-3); color: var(--ink); border-color: transparent; }
+:root[data-c2] .btn.danger { color: var(--bad); border-color: var(--bad-line); background: var(--surface); }
+:root[data-c2] .btn.danger:hover:not(:disabled) { background: var(--bad-soft); border-color: var(--bad-line); }
+:root[data-c2] .btn.danger.solid { background: var(--bad); border-color: var(--bad); color: #FFFFFF; }
+:root[data-c2][data-app-theme="dark"] .btn.danger.solid { color: #000000; }
+:root[data-c2] .btn[disabled], :root[data-c2] .btn[aria-disabled="true"] { opacity: .4; transform: none; }
+:root[data-c2] .spin { width: 8px; height: 8px; border: none; border-radius: 9999px; background: currentColor; animation: c2-pulse 1000ms var(--ease) infinite; }
+@media (prefers-reduced-motion: reduce) {
+  :root[data-c2] :is(.btn, .wh-kpi, .st-act-b, .st-tb-btn):is(:hover, :active) { transform: none !important; }
+}

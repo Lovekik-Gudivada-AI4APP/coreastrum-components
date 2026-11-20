@@ -1,0 +1,14 @@
+/* pulseColumn · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.pulse { display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 8px; border-radius: var(--r-sm); border: 1px solid var(--line);
+  background: var(--surface); font-size: 12px; color: var(--ink-2); white-space: nowrap; line-height: 16px }
+.pulse:hover { border-color: var(--line-strong); }
+@media (max-width: 1100px) {
+  .pulse .pulse-txt { display: none; }
+}
+@media (max-width: 860px) {
+  .pulse { display: none; }
+}
+.pulse-cell { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.pulse-cell .pc-n { min-width: 22px; text-align: right; font-size: var(--fs-body); color: var(--ink); font-variant-numeric: tabular-nums; line-height: 20px }
+.pulse-cell .pc-f { font-size: var(--fs-meta); color: var(--bad); font-weight: 600; line-height: 16px }
+.pulse-cell .spulse { gap: 0px; }

@@ -1,0 +1,198 @@
+/* CoreAstrum AI Studio tokens: light and dark. Put data-c2 and data-design="C" on <html>; data-app-theme="dark" switches to dark. */
+:root {
+  /* ---- Official 4SightAI web palette (verbatim from 4sightai.com CSS) ---- */
+  --brand-50: #EEF6FB; --brand-100: #D9EBF6; --brand-200: #B5D7EC; --brand-300: #86BFE0;
+  --brand-400: #4FA6D6; --brand-500: #2B90CB; --brand-600: #1769A1; --brand-700: #1C558C;
+  --brand-800: #1D406B; --brand-900: #14213A;
+  --magenta-50: #FDF0F7; --magenta-100: #FBE0EF; --magenta-500: #C81F87; --magenta-600: #A8196F;
+
+  /* ---- Derived interface tokens (light) ---- */
+  --canvas: #F2F6F9;
+  --surface: #FFFFFF;
+  --surface-2: #F7FAFC;
+  --surface-3: #EDF2F7;
+  --line: #DFE7EE;
+  --line-strong: #C6D3DF;
+  --ink: #14213A;          /* brand-900 as text */
+  --ink-2: #34445C;
+  --ink-3: #56667D;        /* muted, 5.9:1 on white */
+  --ink-4: #8796A9;        /* decorative / disabled only */
+  --accent: #1769A1;       /* brand-600 = site --primary */
+  --accent-hover: #1C558C; /* brand-700 */
+  --accent-soft: #EEF6FB;  /* brand-50 */
+  --accent-line: #B5D7EC;  /* brand-200 */
+  --accent-ink: #FFFFFF;
+  --focus: #2B90CB;        /* brand-500 */
+  --ai: #C81F87;           /* magenta-500: AI activity only */
+  --ai-ink: #A8196F;
+  --ai-soft: #FDF0F7;
+  --ai-line: #FBE0EF;
+  --chrome: #FFFFFF;
+  --chrome-line: #E3EAF1;
+  --overlay: rgba(20, 33, 58, .38);
+
+  /* ---- Semantic status (derived, AA on white) ---- */
+  --ok: #1D7A55;     --ok-soft: #E6F4EE;    --ok-line: #B9DFCD;
+  --warn: #B45309;   --warn-soft: #FDF3E7;  --warn-line: #F3D3AE;   /* amber (§6) — replaces the old ochre */
+  --bad: #B4253A;    --bad-soft: #FCEDEF;   --bad-line: #F1C1C9;
+  --info: #1769A1;   --info-soft: #EEF6FB;  --info-line: #B5D7EC;
+  /* Live = AI work in progress only (streaming, running runs, live counters). Never errors or decoration. */
+  --live: #A8196F;   --live-soft: #FDF0F7;  --live-line: #FBE0EF;
+  /* Text on solid fills — flips to dark ink in dark mode so every solid button passes AA. */
+  --on-solid: #FFFFFF; --ai-solid: #C81F87;
+
+  /* ---- Provenance (Blueprint mode) ---- */
+  --prov-live: #1D7A55; --prov-partial: #B45309; --prov-proposed: #6B5BA8;
+
+  /* ---- Night surfaces (traces, consoles, run inspectors) ---- */
+  --night: #0E192C; --night-2: #15233B; --night-3: #1C2E4C; --night-line: #263A5C;
+  --night-ink: #E4ECF5; --night-ink-2: #A9BBD1; --night-ink-3: #7A8FAB;
+  --night-ok: #6FD3A6; --night-warn: #F2B562; --night-bad: #F28C9C; --night-live: #F08BC6; --night-accent: #86BFE0;
+
+  /* ---- Data visualisation (brand-ordered) ---- */
+  --viz-1: #1769A1; --viz-2: #4FA6D6; --viz-3: #C81F87; --viz-4: #1D406B; --viz-5: #86BFE0; --viz-6: #A8196F;
+
+  /* ---- Type ---- */
+  --font-display: "Satoshi", "Inter", system-ui, sans-serif;
+  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  /* Type scale — the only sizes shared components use (see "Typography" below).
+     role            token          class        use
+     page title      --fs-title     .t-h1        one per page (kit Page <h1>)
+     overlay title   --fs-title-sm  .t-h1.sm     dialog / drawer heading
+     section title   --fs-section   .t-h2        panel / card / section headers (.panel-h h2|h3)
+     sub-section     --fs-sub       .t-h3        group headings inside a panel
+     label           --fs-label     .t-over      tracked caps: eyebrows, column headers, stat labels
+     body            --fs-body      .t-body      prose, table cells, form controls
+     meta            --fs-meta      .t-meta      subtitles, timestamps, secondary values
+     mono            --fs-mono      .mono/.t-mono  codes, keys, ids, payloads — never prose */
+  /* §7: title 22/28 · section 15/22 · sub 13.5/20 · label 10.5/14 · body 13.5/20 · meta 12/16 · mono 12/16 · metric 22/26.
+     No size outside this scale in shared components. Overlay (dialog/drawer) titles use the section size. */
+  --fs-title: 20px; --fs-title-sm: 14px; --fs-section: 14px; --fs-sub: 12px; --fs-label: 12px;
+  --fs-body: 12px; --fs-meta: 12px; --fs-mono: 12px; --fs-metric: 20px;
+  --lh-tight: 1.25; --lh-body: 1.5;
+  --ls-label: .08em;
+  /* Spacing scale (4px base) for shared components. */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px; --sp-6: 24px;
+
+  /* ---- Space, radius, elevation, motion ---- */
+  /* §8 radius: 6 controls · 10 panels and cards · 14 dialogs and drawers · 999 chips. Nothing else. */
+  --r-xs: 6px; --r-sm: 6px; --r-md: 10px; --r-lg: 10px; --r-xl: 14px; --r-pill: 999px;
+  /* §8 elevation: flat (hairline) for panels · level 1 popovers/menus · level 2 dialogs/drawers.
+     --e1 is only a control micro-shadow (switch knob); --e2 = level 1; --e3 = level 2. */
+  --e1: 0 1px 2px rgba(20, 33, 58, .06);
+  --e2: 0 1px 2px rgba(20, 33, 58, .06), 0 8px 24px -8px rgba(20, 33, 58, .2);
+  --e3: 0 24px 60px -16px rgba(20, 33, 58, .32), 0 2px 6px rgba(20, 33, 58, .08);
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --t-fast: 120ms; --t-med: 220ms; --t-slow: 420ms;
+
+  --rail-w: 76px; --strip-h: 52px; --pane-w: 280px; --inspector-w: 440px;
+  color-scheme: light;
+}
+[data-app-theme="dark"] {
+  --canvas: #0A1322; --surface: #101C30; --surface-2: #14223A; --surface-3: #1A2B47;
+  --line: #22344F; --line-strong: #314766;
+  --ink: #E6EEF7; --ink-2: #C3D0DF; --ink-3: #94A6BD; --ink-4: #66799A;
+  --accent: #4FA6D6; --accent-hover: #86BFE0; --accent-soft: #13304B; --accent-line: #1D4A70; --accent-ink: #0A1322;
+  --focus: #86BFE0;
+  --ai: #E04BA3; --ai-ink: #F08BC6; --ai-soft: #3A1530; --ai-line: #5A2049;
+  --chrome: #0D1829; --chrome-line: #1E2F4A; --overlay: rgba(2, 6, 14, .6);
+  --ok: #5BC79A; --ok-soft: #12312A; --ok-line: #1F5543;
+  --warn: #E5A44D; --warn-soft: #33230E; --warn-line: #5C3F14;
+  --live: #F08BC6; --live-soft: #3A1530; --live-line: #5A2049;
+  --on-solid: #0A1322; --ai-solid: #A8196F;
+  --bad: #F07C8E; --bad-soft: #3A1820; --bad-line: #632635;
+  --info: #4FA6D6; --info-soft: #13304B; --info-line: #1D4A70;
+  --prov-live: #5BC79A; --prov-partial: #E5A44D; --prov-proposed: #A99BE0;
+  --viz-1: #4FA6D6; --viz-2: #86BFE0; --viz-3: #E04BA3; --viz-4: #B5D7EC; --viz-5: #2B90CB; --viz-6: #F08BC6;
+  --e1: 0 1px 2px rgba(0, 0, 0, .3); --e2: 0 8px 22px -8px rgba(0, 0, 0, .55); --e3: 0 28px 70px -12px rgba(0, 0, 0, .7);
+  color-scheme: dark;
+}
+@media (max-width: 1100px) {
+  :root { --pane-w: 248px; }
+}
+[data-design="C"] { --r-sm: 5px; --r-md: 6px; --r-lg: 8px; --r-xl: 10px; }
+[data-design="C"] { --st-title-h: 40px; --st-status-h: 24px; --st-act-w: 44px; --st-side: 232px; --st-cp: 340px; --st-panel-h: 200px;
+  --c-cap: 600 10.5px/1.2 var(--font-ui); --c-cap-ls: .08em; --c-card-h: 600 13px/1.3 var(--font-ui); }
+@media (min-width: 1600px) {
+  [data-design="C"] { --st-side: 240px; }
+}
+@media (max-width: 1599px) {
+  [data-design="C"] { --st-cp: 312px; }
+}
+@media (max-width: 1365px) {
+  [data-design="C"] { --st-side: 220px; --st-cp: 288px; }
+}
+@media (max-width: 959px) {
+  [data-design="C"] { --st-title-h: 50px; --st-act-w: 48px; }
+}
+[data-dir="B"] { --mc-bar: 64px; --mc-tick: 34px; --mc-glass: color-mix(in srgb, var(--surface) 82%, transparent); --mc-shadow: 0 1px 1px rgba(20,33,58,.04), 0 12px 32px -14px rgba(20,33,58,.22); }
+@media (max-width: 720px) {
+  [data-dir="B"] { --mc-bar: 58px; }
+}
+:root[data-c2] {
+  /* One typeface. !important beats the inline --font-ui that Settings › Display writes. */
+  --font-display: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  --font-ui: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace !important;
+
+  /* Named text styles (weight size/line-height). Use as: font: var(--tx-body-6) var(--font-ui) */
+  --tx-heading-1: 600 60px/60px; --tx-heading-2: 600 48px/48px; --tx-heading-3: 600 36px/40px;
+  --tx-heading-4: 600 30px/36px; --tx-heading-5: 600 24px/32px; --tx-heading-6: 600 20px/28px;
+  --tx-title-1: 500 20px/28px; --tx-title-2: 500 18px/28px; --tx-title-3: 500 16px/24px; --tx-title-4: 500 14px/20px; --tx-title-5: 500 12px/16px;
+  --tx-body-1: 600 16px/24px; --tx-body-2: 500 16px/24px; --tx-body-3: 400 16px/24px;
+  --tx-body-4: 600 14px/20px; --tx-body-5: 500 14px/20px; --tx-body-6: 400 14px/20px;
+  --tx-btn-lg: 600 18px/28px; --tx-btn-md: 600 16px/24px; --tx-btn-sm: 600 14px/20px; --tx-btn-xsm: 600 12px/16px;
+  --tx-caption-1: 500 14px/20px; --tx-caption-2: 400 14px/20px; --tx-caption-3: 600 12px/16px; --tx-caption-4: 500 12px/16px; --tx-caption-5: 400 12px/16px;
+
+  /* Legacy size tokens mapped onto the scale */
+  --fs-title: 24px; --fs-title-sm: 20px; --fs-section: 16px; --fs-sub: 14px; --fs-body: 14px; --fs-label: 12px; --fs-meta: 12px; --fs-mono: 12px; --fs-metric: 24px;
+  --ls-label: 0;
+  /* Design C caption/card tokens (shell-c.css) re-pointed at named styles */
+  --c-cap: var(--tx-caption-3) var(--font-ui); --c-cap-ls: 0; --c-card-h: var(--tx-body-1) var(--font-ui);
+
+  /* Radius: Tailwind steps */
+  --r-xs: 4px; --r-sm: 8px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px; --r-pill: 9999px;
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1); --t-fast: 300ms; --t-med: 500ms; --t-slow: 500ms;
+
+  /* Frame metrics */
+  --st-title-h: 64px; --st-status-h: 32px; --st-act-w: 56px; --st-side: 256px; --st-cp: 336px;
+}
+:root[data-c2]:not([data-app-theme="dark"]) {
+  --canvas: #F4F4F5; --surface: #FFFFFF; --surface-2: #FAFAFA; --surface-3: #F4F4F5;
+  --line: #E4E4E7; --line-strong: #D4D4D8;
+  --ink: #09090B; --ink-2: #3F3F46; --ink-3: #5B5B63; --ink-4: #A1A1AA;
+  --chrome: #FFFFFF; --chrome-line: #E4E4E7; --overlay: rgba(9, 9, 11, .32);
+  --c2-solid: #18181B; --c2-solid-hover: #3F3F46; --c2-solid-ink: #FFFFFF;
+  --c2-glass: rgba(255, 255, 255, .72); --c2-toast: #18181B; --c2-toast-ink: #FAFAFA; --c2-toast-sub: #A1A1AA;
+  --night: #181818; --night-2: #1F1F1F; --night-3: #272727; --night-line: #313131;
+  --night-ink: #EDEDED; --night-ink-2: #B4B4B4; --night-ink-3: #8A8A8A;
+  --e1: 0 1px 2px rgba(9, 9, 11, .06);
+  --e2: 0 1px 2px rgba(9, 9, 11, .04), 0 8px 24px -12px rgba(9, 9, 11, .16);
+  --e3: 0 24px 48px -16px rgba(9, 9, 11, .24), 0 2px 8px rgba(9, 9, 11, .06);
+}
+:root[data-c2][data-app-theme="dark"] {
+  --canvas: #000000; --surface: #181818; --surface-2: #1F1F1F; --surface-3: #272727;
+  --line: #313131; --line-strong: #3F3F3F;
+  --ink: #FAFAFA; --ink-2: #D4D4D8; --ink-3: #A1A1AA; --ink-4: #71717A;
+  --accent: #6CB4E0; --accent-hover: #93C9EA; --accent-soft: #272727; --accent-line: #2F5470; --accent-ink: #000000; --focus: #93C9EA;
+  --ai-soft: #272727; --ai-line: #5A2049;
+  --ok-soft: #272727; --warn-soft: #272727; --bad-soft: #272727; --info-soft: #272727; --live-soft: #272727;
+  --chrome: #181818; --chrome-line: #313131; --overlay: rgba(0, 0, 0, .64);
+  --c2-solid: #FAFAFA; --c2-solid-hover: #D4D4D8; --c2-solid-ink: #000000;
+  --c2-glass: rgba(24, 24, 24, .72); --c2-toast: #272727; --c2-toast-ink: #FAFAFA; --c2-toast-sub: #A1A1AA;
+  --night: #131209; --night-2: #1F1F1F; --night-3: #272727; --night-line: #313131;
+  --night-ink: #EDEDED; --night-ink-2: #B4B4B4; --night-ink-3: #8A8A8A;
+  --e1: 0 1px 2px rgba(0, 0, 0, .4); --e2: 0 8px 24px -12px rgba(0, 0, 0, .72); --e3: 0 24px 48px -16px rgba(0, 0, 0, .8);
+}
+@media (max-width: 1365px) {
+  :root[data-c2] { --st-side: 240px; --st-cp: 304px; }
+}
+@media (max-width: 1179px) {
+  :root[data-c2] { --st-side: 224px; }
+}
+@media (max-width: 959px) {
+  :root[data-c2] { --st-title-h: 64px; --st-act-w: 56px; }
+}
+:root[data-c2][data-design="C"] { --st-status-h: 40px; }

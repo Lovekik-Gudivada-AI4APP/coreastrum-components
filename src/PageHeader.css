@@ -1,0 +1,22 @@
+/* PageHeader · CoreAstrum AI Studio, from the redesign's stylesheet. Needs tokens.css and foundations.css. */
+.t-h1 { font: 700 var(--fs-title)/32px var(--font-display); letter-spacing: -.015em; margin: 0; text-wrap: balance; }
+.t-h1.sm { font-size: var(--fs-title-sm); line-height: 28px; letter-spacing: -.008em; }
+.page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.page-head .crumbs { display: flex; gap: 4px; align-items: center; font-size: 12px; color: var(--ink-3); margin-bottom: 4px; flex-wrap: wrap; line-height: 16px }
+.page-head .crumbs button { background: none; border: none; padding: 0; color: var(--ink-3); }
+.page-head .crumbs button:hover { color: var(--accent); text-decoration: underline; }
+.head-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+[data-design="C"] .page-head { align-items: center; gap: 12px; margin-bottom: 12px !important; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+[data-design="C"] .page-head .t-h1, [data-design="C"] #main-scroll h1.t-h1 { font-size: 18px; line-height: 28px; letter-spacing: -.012em; }
+[data-design="C"] .page-head .t-meta { font-size: 12px; line-height: 16px }
+[data-design="C"] .page-head .id-ico { width: 34px; height: 34px; border-radius: 6px; background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: 0 6px 14px -8px color-mix(in srgb, var(--accent) 80%, transparent); }
+[data-design="C"] .head-actions { gap: 4px; }
+.page-head .t-h1 { overflow-wrap: anywhere; }
+#main-scroll .page-head .crumbs, #main-scroll nav[aria-label="Breadcrumb"]:not(.ca-crumbs), #main-scroll .crumbs:not(.ca-crumbs) { display: none !important; }
+:root[data-c2] .t-h1, :root[data-c2] #main-scroll h1.t-h1, :root[data-c2] .page-head .t-h1 { font: var(--tx-heading-5) var(--font-ui); letter-spacing: -.02em; }
+:root[data-c2] .t-h1.sm, :root[data-c2] #main-scroll .t-h1.sm { font: var(--tx-heading-6) var(--font-ui); letter-spacing: -.01em; }
+:root[data-c2][data-design="C"] .page-head { gap: 16px; margin-bottom: 24px !important; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+:root[data-c2][data-design="C"] .page-head .t-meta, :root[data-c2] .page-sub { font: var(--tx-body-6) var(--font-ui); color: var(--ink-3); max-width: 680px; }
+:root[data-c2][data-design="C"] .page-head .id-ico { width: 48px; height: 48px; border-radius: 12px; background: var(--surface-3); color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
+:root[data-c2][data-design="C"] .head-actions { gap: 8px; }
+:root[data-c2] .page-head .crumbs { font: var(--tx-caption-4) var(--font-ui); gap: 8px; }

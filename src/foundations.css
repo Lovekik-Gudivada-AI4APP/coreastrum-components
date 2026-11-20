@@ -1,0 +1,102 @@
+/* CoreAstrum AI Studio base styles: fonts, reset, focus ring and shared text utilities. */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap");
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--canvas); color: var(--ink); font: 400 var(--fs-body)/20px var(--font-ui);
+  -webkit-font-smoothing: antialiased; font-feature-settings: "cv11", "ss01"; }
+#root { height: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+::selection { background: var(--brand-200); color: var(--brand-900); }
+.num { font-variant-numeric: tabular-nums; }
+.mono, .t-mono { font-family: var(--font-mono); font-size: var(--fs-mono); font-weight: 500; letter-spacing: -.01em; line-height: 16px }
+.muted { color: var(--ink-3); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }
+}
+.t-meta { font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); }
+kbd { font: 500 12px/16px var(--font-mono); padding: 2px 4px; border-radius: 4px; border: 1px solid var(--line); border-bottom-width: 2px;
+  background: var(--surface); color: var(--ink-3); }
+.row { display: flex; gap: 8px; align-items: center; min-width: 0; }
+.row.wrap { flex-wrap: wrap; }
+.spread { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-width: 0; }
+.cell-title { font-weight: 600; color: var(--ink); }
+.cell-sub { font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); }
+.tip { position: relative; }
+.tip[data-tip]:hover::after, .tip[data-tip]:focus-visible::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  background: var(--brand-900); color: #fff; font: 500 var(--fs-meta)/16px var(--font-ui); padding: 4px 8px; border-radius: var(--r-sm); white-space: nowrap; z-index: 80; pointer-events: none;
+  box-shadow: var(--e2); max-width: 280px; }
+.tip.tip-r[data-tip]:hover::after { left: calc(100% + 8px); bottom: auto; top: 50%; transform: translateY(-50%); }
+mark { background: color-mix(in srgb, var(--brand-300) 45%, transparent); color: inherit; border-radius: 2px; padding: 0 0px; }
+@media (max-width: 860px) {
+  .hide-m { display: none !important; }
+}
+[data-design="C"] .cell-title { font-weight: 600; }
+.linkish { background: none; border: none; padding: 0; color: var(--accent); font: inherit; cursor: pointer; text-align: left; }
+.linkish:hover { text-decoration: underline; }
+[data-design="C"] body { background: var(--surface-2); }
+[data-dir="A"] { height: 100%; }
+[data-dir="B"] h2 { font: 700 18px/28px var(--font-display); letter-spacing: -.015em; margin: 2px 0 0; text-wrap: balance; }
+[data-dir="B"] h3 { font: 700 16px/24px var(--font-display); margin: 2px 0; }
+[data-dir="B"] code { font: 500 12px/16px var(--font-mono); color: var(--ink-3); }
+[data-dir="B"] .num { font-variant-numeric: tabular-nums; }
+[data-dir="B"] kbd { font: 500 12px/16px var(--font-mono); padding: 2px 4px; border-radius: 4px; border: 1px solid var(--line); border-bottom-width: 2px; background: var(--surface-2); color: var(--ink-3); }
+:root[data-c2] body { font: var(--tx-body-6) var(--font-ui); background: var(--canvas); letter-spacing: 0; }
+:root[data-c2] :is(button, input, select, textarea) { font-family: var(--font-ui); }
+:root[data-c2] :is(em, i, cite, var, dfn) { font-style: normal; }
+:root[data-c2] :is(b, strong) { font-weight: 600; }
+:root[data-c2] :is(h1, h2, h3, h4, h5, h6) { text-wrap: balance; font-weight: 600; }
+:root[data-c2] :is(.num, .mono, .t-mono, code, kbd, samp, pre) { font-family: var(--font-mono); font-variant-numeric: tabular-nums; letter-spacing: 0; }
+:root[data-c2] .mono, :root[data-c2] .t-mono { font-weight: 400; }
+:root[data-c2] kbd { font: 500 12px/16px var(--font-mono); padding: 0 4px; border-radius: 4px; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-3); }
+:root[data-c2] ::selection { background: color-mix(in srgb, var(--accent) 24%, transparent); color: inherit; }
+:root[data-c2] :is(a, button, [role="button"], [role="tab"], [role="option"], [role="menuitem"], [role="treeitem"], input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus); outline-offset: 2px; }
+:root[data-c2] .t-meta { font: var(--tx-caption-5) var(--font-ui); color: var(--ink-3); }
+:root[data-c2] #root * { text-transform: none; }
+:root[data-c2][data-design="C"] body { background: var(--canvas); }
+:root[data-c2] .tip[data-tip]:hover::after, :root[data-c2] .tip[data-tip]:focus-visible::after { background: var(--c2-toast); color: var(--c2-toast-ink); font: var(--tx-caption-4) var(--font-ui); padding: 4px 8px; border-radius: 8px; }
+:root[data-c2][data-design="C"] .cell-title { font-weight: 500; }
+:root[data-c2] .cell-sub { font: var(--tx-caption-5) var(--font-ui); }
+@media (prefers-reduced-motion: reduce) {
+  :root[data-c2] *, :root[data-c2] *::before, :root[data-c2] *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-property: opacity !important; }
+}
+:root[data-c2] select:disabled { opacity: .7; }
+@keyframes orb { 0% { transform: scale(.5); opacity: .7; } 100% { transform: scale(1.5); opacity: 0; } }
+@keyframes blink { 50% { opacity: .25; } }
+@keyframes fade { from { opacity: 0; } }
+@keyframes rise { from { opacity: 0; transform: translate(-50%, 10px) scale(.985); } }
+@keyframes slide { from { transform: translateX(24px); opacity: 0; } }
+@keyframes pop { from { opacity: 0; transform: translateY(-4px); } }
+@keyframes rise-t { from { opacity: 0; transform: translateY(8px); } }
+@keyframes shimmer { to { background-position: -200% 0; } }
+@keyframes indet { from { transform: translateX(-100%); } to { transform: translateX(290%); } }
+@keyframes rot { to { transform: rotate(360deg); } }
+@keyframes flow { to { stroke-dashoffset: -11; } }
+@keyframes cppulse { 70% { box-shadow: 0 0 0 7px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+@keyframes chdot { 0%, 80%, 100% { opacity: .25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-3px); } }
+@keyframes mbIn { from { opacity: 0; transform: translate(-50%, -8px) scale(.99); } }
+@keyframes mbEvIn { from { opacity: 0; transform: translateY(4px); } }
+@keyframes cc-fly { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
+@keyframes mcIn { from { opacity: 0; transform: translateY(-6px) scale(.985); } }
+@keyframes mcPulse { 70% { box-shadow: 0 0 0 9px rgba(111,211,166,0); } 100% { box-shadow: 0 0 0 0 rgba(111,211,166,0); } }
+@keyframes mcSpin { to { transform: rotate(360deg); } }
+@keyframes mcFlow { to { stroke-dashoffset: -18; } }
+@keyframes mcHalo { 0% { transform: scale(.85); opacity: .9; } 100% { transform: scale(1.5); opacity: 0; } }
+@keyframes mcSlide { from { opacity: 0; transform: translateX(12px); } }
+@keyframes mcTick { to { transform: translateX(-50%); } }
+@keyframes mcWire { to { left: calc(100% - 8px); } }
+@keyframes sig-live { 50% { opacity: .35; } }
+@keyframes c2-turn { from { transform: rotate(-90deg) scale(.6); opacity: 0; } }
+@keyframes c2-rise-in { from { opacity: 0; transform: translate(-50%, 24px); } }
+@keyframes c2-toast-in { from { opacity: 0; transform: translateY(16px); } }
+@keyframes c2-pulse { 50% { opacity: .48; } }
+@keyframes c2-panel-in { from { opacity: 0; transform: translateY(-8px); } }
+@keyframes c2-link-in { from { opacity: 0; transform: translateY(24px); } }
+@keyframes c2l-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes c2-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes tb-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--live) 50%, transparent); } 100% { box-shadow: 0 0 0 8px transparent; } }
+@keyframes tb-blink { 50% { opacity: .35; } }
